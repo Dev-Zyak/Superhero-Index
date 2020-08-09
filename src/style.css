@@ -1,0 +1,130 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  width: 100%;
+  height: 20vh;
+  color: white;
+  background: #424242;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav input {
+  height: 30%;
+  width: 25%;
+  font-size: 4vh;
+  padding-left: 10px;
+  outline: none;
+}
+
+nav button {
+  height: 30%;
+  width: 6%;
+  overflow: hidden;
+}
+
+.Returnarea {
+  width: 100%;
+  min-height: 80vh;
+  background: #2a2a2a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Returnarea .imagehovered {
+  -webkit-animation: 0.5s ease-out all forwards;
+          animation: 0.5s ease-out all forwards;
+  -webkit-animation-name: imageHover;
+          animation-name: imageHover;
+}
+
+.Returnarea .superheroDisplay {
+  width: 15vh;
+  height: 20vh;
+  margin: 10px;
+  -webkit-transition: 0.5s all ease-out;
+  transition: 0.5s all ease-out;
+  overflow: hidden;
+  cursor: pointer;
+  background-image: url("./images/placeholder.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border: 1px solid red;
+}
+
+.Returnarea .superheroDisplay img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.3s linear transform;
+  transition: 0.3s linear transform;
+}
+
+.Returnarea .superheroDisplay img:hover {
+  -webkit-transform: scale(1.4) rotate(15deg);
+          transform: scale(1.4) rotate(15deg);
+}
+
+.Returnarea .superheroDisplay .nameInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background: rgba(29, 29, 29, 0.541);
+  height: 25%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.3em;
+}
+
+.Returnarea .superheroDisplay .nameInfo h3 {
+  color: white;
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
