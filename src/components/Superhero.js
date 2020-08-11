@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Superhero extends Component {
   constructor(props) {
@@ -7,19 +8,21 @@ class Superhero extends Component {
   }
   render() {
     return (
-      <div
-        className={"superheroDisplay"}
-        style={
-          this.props.info.biography.alignment === "good"
-            ? { border: "1px solid blue" }
-            : { border: "1px solid red" }
-        }
-      >
-        <img src={this.props.info.image.url} />
-        <div className="nameInfo">
-          <h3>{this.props.info.name}</h3>
+      <Link to={`info/${this.props.info.id}`}>
+        <div
+          className={"superheroDisplay"}
+          style={
+            this.props.info.biography.alignment === "good"
+              ? { border: "1px solid blue" }
+              : { border: "1px solid red" }
+          }
+        >
+          <img src={this.props.info.image.url} />
+          <div className="nameInfo">
+            <h3>{this.props.info.name}</h3>
+          </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }

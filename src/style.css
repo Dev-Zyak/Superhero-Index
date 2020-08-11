@@ -17,6 +17,26 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 nav {
   width: 100%;
   height: 20vh;
@@ -64,6 +84,8 @@ nav button {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -100,8 +122,8 @@ nav button {
 }
 
 .Returnarea .superheroDisplay img:hover {
-  -webkit-transform: scale(1.4) rotate(15deg);
-          transform: scale(1.4) rotate(15deg);
+  -webkit-transform: scale(1.25) rotate(5deg);
+          transform: scale(1.25) rotate(5deg);
 }
 
 .Returnarea .superheroDisplay .nameInfo {
@@ -126,5 +148,82 @@ nav button {
 .Returnarea .superheroDisplay .nameInfo h3 {
   color: white;
   text-align: center;
+}
+
+.Charinfo {
+  background: #2f2f3f;
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.Charinfo img {
+  width: auto;
+  height: 80vh;
+  border: 2px solid blue;
+  border-radius: 6px;
+}
+
+.Charinfo .superinfo {
+  color: white;
+  padding: 10px;
+}
+
+.Charinfo .statdiv {
+  width: 500px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 10%;
+}
+
+.Charinfo .statdiv .stats {
+  color: white;
+  font-size: 1.5rem;
+  padding-right: 20px;
+}
+
+.Charinfo .statdiv .stats h2 {
+  text-decoration: underline;
+}
+
+.Charinfo .statdiv .statwrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.Charinfo .statdiv .statwrapper h3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  width: 200px;
 }
 /*# sourceMappingURL=style.css.map */

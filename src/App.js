@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Searchbar from "./components/Searchbar";
 import Returnarea from "./components/Returnarea";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Charinfo from "./components/Charinfo";
 
 class App extends Component {
   constructor() {
@@ -11,9 +13,8 @@ class App extends Component {
   }
   //https://superheroapi.com/ids.html
   search() {
-    const proxyURL = "https://cors-anywhere.herokuapp.com/";
-    let URL = `https://superheroapi.com/api/10222858219473795/search/${this.state.searchtext}`;
-    fetch(proxyURL + URL)
+    let URL = `api/10222858219473795/search/${this.state.searchtext}`;
+    fetch(URL)
       .then((Response) =>
         Response.json().then((Response) => {
           const newArray = Response;
@@ -30,10 +31,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Searchbar search={this.search} handleEvent={this.handleEvent} />
-        <Returnarea results={this.state.searchresults.results} />
-      </div>
+      <Router>
+        <Switch>
+          <Route path="/" exact>
+            <Searchbar search={this.search} handleEvent={this.handleEvent} />
+            <Returnarea results={this.state.searchresults.results} />
+          </Route>
+
+          <Route path="/info/:id" component={Charinfo} />
+        </Switch>
+      </Router>
     );
   }
 }
