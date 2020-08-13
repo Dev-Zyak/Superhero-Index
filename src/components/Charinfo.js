@@ -28,97 +28,181 @@ class Charinfo extends Component {
   render() {
     return (
       <div className="Charinfo">
-        <img
-          src={this.state.results.image ? this.state.results.image.url : null}
-        />
-        <div className="superinfo">
-          <h1>{this.state.results.name}</h1>
-          <h1>
-            {this.state.results.biography
-              ? this.state.results.biography["full-name"]
-              : "NOPE"}
-          </h1>
-          <h1>
-            {this.state.results.biography
-              ? this.state.results.biography.publisher
-              : null}
-          </h1>
-          <div className="row statdiv">
-            <div className="column stats">
-              <h2>Appearance</h2>
+        <div className="row">
+          <img
+            src={this.state.results.image ? this.state.results.image.url : null}
+          />
+          <div className="column">
+            <h1 id="superName">
+              {this.state.results.name ? this.state.results.name : null}
+            </h1>
+            <h3>
+              {this.state.results.biography &&
+              this.state.results.biography["full-name"].length > 4
+                ? this.state.results.biography["full-name"]
+                : null}
+            </h3>
 
-              <div className="statwrapper">
-                <h3>
-                  {this.state.results.appearance
-                    ? "Height:   " + this.state.results.appearance.height[0]
-                    : null}
-                </h3>
-              </div>
-              <div className="statwrapper">
-                <h3>
-                  {this.state.results.appearance
-                    ? "Weight:   " + this.state.results.appearance.weight[0]
-                    : null}
-                </h3>
-              </div>
-
-              <div className="statwrapper">
-                <h3>
-                  {this.state.results.appearance
-                    ? "Gender:   " + this.state.results.appearance.gender
-                    : null}
-                </h3>
-              </div>
-              <div className="statwrapper">
-                <h3>
-                  {this.state.results.appearance
-                    ? "Race:   " + this.state.results.appearance.race
-                    : null}
-                </h3>
+            <div className="stats">
+              <div>
+                {this.state.results.powerstats &&
+                this.state.results != "null" ? (
+                  <div className="row">
+                    <h3 className="statname">
+                      Intelligence: {this.state.results.powerstats.intelligence}
+                    </h3>
+                    <div className="loadbar">
+                      <div
+                        className="progress"
+                        style={
+                          this.state.results.powerstats.intelligence !=
+                            "null" &&
+                          this.state.results.powerstats && {
+                            width: 0,
+                            width:
+                              this.state.results.powerstats.intelligence.toString() +
+                              "%",
+                          }
+                        }
+                      ></div>
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </div>
 
-            <div className="column stats">
-              <h2>Stats</h2>
-              <div className="statwrapper">
-                <h3>
-                  {this.state.results.powerstats
-                    ? "Strength:   " + this.state.results.powerstats.strength
-                    : null}
-                </h3>
-
-                <h3>
-                  {this.state.results.powerstats
-                    ? "Combat:   " + this.state.results.powerstats.combat
-                    : null}
-                </h3>
+            <div className="stats">
+              <div>
+                {this.state.results.powerstats &&
+                this.state.results != "null" ? (
+                  <div className="row">
+                    <h3 className="statname">
+                      Durability: {this.state.results.powerstats.durability}
+                    </h3>
+                    <div className="loadbar">
+                      <div
+                        className="progress"
+                        style={
+                          this.state.results.powerstats.durability != "null" &&
+                          this.state.results.powerstats && {
+                            width: 0,
+                            width:
+                              this.state.results.powerstats.durability.toString() +
+                              "%",
+                          }
+                        }
+                      ></div>
+                    </div>
+                  </div>
+                ) : null}
               </div>
-              <div className="statwrapper">
-                <h3>
-                  {this.state.results.powerstats
-                    ? "Speed:   " + this.state.results.powerstats.power
-                    : null}
-                </h3>
+            </div>
 
-                <h3>
-                  {this.state.results.powerstats
-                    ? "Power:   " + this.state.results.powerstats.power
-                    : null}
-                </h3>
+            <div className="stats">
+              <div>
+                {this.state.results.powerstats &&
+                this.state.results != "null" ? (
+                  <div className="row">
+                    <h3 className="statname">
+                      Speed: {this.state.results.powerstats.speed}
+                    </h3>
+                    <div className="loadbar">
+                      <div
+                        className="progress"
+                        style={
+                          this.state.results.powerstats.speed != "null" &&
+                          this.state.results.powerstats && {
+                            width: 0,
+                            width:
+                              this.state.results.powerstats.speed.toString() +
+                              "%",
+                          }
+                        }
+                      ></div>
+                    </div>
+                  </div>
+                ) : null}
               </div>
-              <div className="statwrapper">
-                <h3>
-                  {this.state.results.powerstats
-                    ? "Durability:   " +
-                      this.state.results.powerstats.durability
-                    : null}
-                </h3>
-                <h3>
-                  {this.state.results.powerstats
-                    ? "Intelligence:   " +
-                      this.state.results.powerstats.intelligence
-                    : null}
-                </h3>
+            </div>
+
+            <div className="stats">
+              <div>
+                {this.state.results.powerstats &&
+                this.state.results != "null" ? (
+                  <div className="row">
+                    <h3 className="statname">
+                      Strength: {this.state.results.powerstats.strength}
+                    </h3>
+                    <div className="loadbar">
+                      <div
+                        className="progress"
+                        style={
+                          this.state.results.powerstats.strength != "null" &&
+                          this.state.results.powerstats && {
+                            width: 0,
+                            width:
+                              this.state.results.powerstats.strength.toString() +
+                              "%",
+                          }
+                        }
+                      ></div>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="stats">
+              <div>
+                {this.state.results.powerstats &&
+                this.state.results != "null" ? (
+                  <div className="row">
+                    <h3 className="statname">
+                      Combat: {this.state.results.powerstats.combat}
+                    </h3>
+                    <div className="loadbar">
+                      <div
+                        className="progress"
+                        style={
+                          this.state.results.powerstats.combat != "null" &&
+                          this.state.results.powerstats && {
+                            width: 0,
+                            width:
+                              this.state.results.powerstats.combat.toString() +
+                              "%",
+                          }
+                        }
+                      ></div>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="stats">
+              <div>
+                {this.state.results.powerstats &&
+                this.state.results != "null" ? (
+                  <div className="row">
+                    <h3 className="statname">
+                      Power: {this.state.results.powerstats.power}
+                    </h3>
+                    <div className="loadbar">
+                      <div
+                        className="progress"
+                        style={
+                          this.state.results.powerstats.power != "null" &&
+                          this.state.results.powerstats && {
+                            width: 0,
+                            width:
+                              this.state.results.powerstats.power.toString() +
+                              "%",
+                          }
+                        }
+                      ></div>
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
