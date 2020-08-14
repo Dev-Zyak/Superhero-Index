@@ -65,6 +65,8 @@ nav input {
   outline: none;
   color: #76cbe6;
   font-weight: 700;
+  border: 1px solid black;
+  border-right: none;
 }
 
 nav button {
@@ -229,5 +231,18 @@ nav button {
   height: 100%;
   background: #76cbe6;
   border-radius: 5px;
+}
+
+.Charinfo .appearance {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  width: 300px;
+  margin-left: auto;
+  text-align: center;
+  border-radius: 25px;
+  margin-top: 10px;
+  font-size: 1.6rem;
+  background: #e4e2e2;
 }
 /*# sourceMappingURL=style.css.map */

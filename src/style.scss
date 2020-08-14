@@ -47,6 +47,8 @@ nav {
     outline: none;
     color: $stylecolor;
     font-weight: 700;
+    border: 1px solid black;
+    border-right: none;
   }
 
   button {
@@ -171,5 +173,16 @@ nav {
       background: $stylecolor;
       border-radius: 5px;
     }
+  }
+
+  .appearance {
+    min-width: fit-content;
+    width: 300px;
+    margin-left: auto;
+    text-align: center;
+    border-radius: 25px;
+    margin-top: 10px;
+    font-size: 1.6rem;
+    background: $accentcolor;
   }
 }

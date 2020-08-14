@@ -85,21 +85,18 @@ class Charinfo extends Component {
                 )
               : null}
 
-            <div
-              className="row"
-              style={{ display: "flex", flexDirection: "column" }}
-            >
-              <h3>
+            <div className="column">
+              <h3 className="appearance">
                 {this.state.results.appearance
                   ? "Height:   " + this.state.results.appearance.height[0]
                   : null}
               </h3>
-              <h3>
+              <h3 className="appearance">
                 {this.state.results.appearance
                   ? "Weight:   " + this.state.results.appearance.weight[0]
                   : null}
               </h3>
-              <h3>
+              <h3 className="appearance">
                 {this.state.results.appearance
                   ? "Race:   " + this.state.results.appearance.race
                   : null}
