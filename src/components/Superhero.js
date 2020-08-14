@@ -8,21 +8,21 @@ class Superhero extends Component {
   }
   render() {
     return (
-      <Link to={`info/${this.props.info.id}`}>
-        <div
-          className={"superheroDisplay"}
-          style={
-            this.props.info.biography.alignment === "good"
-              ? { border: "1px solid blue" }
-              : { border: "1px solid red" }
-          }
-        >
+      <div
+        className={"superheroDisplay"}
+        style={
+          this.props.info.biography.alignment === "good"
+            ? { border: "1px solid blue" }
+            : { border: "1px solid red" }
+        }
+      >
+        <Link to={`info/${this.props.info.id}`}>
           <img src={this.props.info.image.url} />
-          <div className="nameInfo">
-            <h3>{this.props.info.name}</h3>
-          </div>
+        </Link>
+        <div className="nameInfo">
+          <h3>{this.props.info.name}</h3>
         </div>
-      </Link>
+      </div>
     );
   }
 }

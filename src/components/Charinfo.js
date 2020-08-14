@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Returnarea from "./Returnarea";
 
 class Charinfo extends Component {
   constructor(props) {
@@ -14,10 +15,19 @@ class Charinfo extends Component {
     fetch(apiURL)
       .then((response) => {
         return response.json();
+        console.log(response);
       })
       .then((response) => {
+        Object.entries(response.powerstats).forEach(([key, value]) => {
+          if (value === "null") {
+            console.log("changed");
+            return (response.powerstats[key] = "0");
+          }
+        });
+        console.log(response.powerstats);
+        console.log(response);
         this.setState({ results: response });
-        console.log(this.state.results);
+        //console.log(this.state.results);
       });
   };
 
@@ -204,6 +214,26 @@ class Charinfo extends Component {
                   </div>
                 ) : null}
               </div>
+            </div>
+            <div
+              className="row"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <h3>
+                {this.state.results.appearance
+                  ? "Height:   " + this.state.results.appearance.height[0]
+                  : null}
+              </h3>
+              <h3>
+                {this.state.results.appearance
+                  ? "Weight:   " + this.state.results.appearance.weight[0]
+                  : null}
+              </h3>
+              <h3>
+                {this.state.results.appearance
+                  ? "Race:   " + this.state.results.appearance.race
+                  : null}
+              </h3>
             </div>
           </div>
         </div>
