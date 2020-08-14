@@ -5,7 +5,7 @@ class Charinfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      results: [],
+      results: {},
       characterID: "1",
     };
   }
@@ -18,6 +18,7 @@ class Charinfo extends Component {
         console.log(response);
       })
       .then((response) => {
+        console.log(response);
         Object.entries(response.powerstats).forEach(([key, value]) => {
           if (value === "null") {
             console.log("changed");
@@ -53,168 +54,37 @@ class Charinfo extends Component {
                 : null}
             </h3>
 
-            <div className="stats">
-              <div>
-                {this.state.results.powerstats &&
-                this.state.results != "null" ? (
-                  <div className="row">
-                    <h3 className="statname">
-                      Intelligence: {this.state.results.powerstats.intelligence}
-                    </h3>
-                    <div className="loadbar">
-                      <div
-                        className="progress"
-                        style={
-                          this.state.results.powerstats.intelligence !=
-                            "null" &&
-                          this.state.results.powerstats && {
-                            width: 0,
-                            width:
-                              this.state.results.powerstats.intelligence.toString() +
-                              "%",
-                          }
-                        }
-                      ></div>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            </div>
+            {this.state.results.powerstats
+              ? Object.entries(this.state.results.powerstats).map(
+                  ([key, value], index) => {
+                    return (
+                      <div className="stats">
+                        <div>
+                          {this.state.results.powerstats &&
+                          this.state.results != "null" ? (
+                            <div className="row">
+                              <h3 className="statname">{key + ":" + value}</h3>
+                              <div className="loadbar">
+                                <div
+                                  className="progress"
+                                  style={
+                                    this.state.results.powerstats[key] !=
+                                      "null" &&
+                                    this.state.results.powerstats && {
+                                      width: value.toString() + "%",
+                                    }
+                                  }
+                                ></div>
+                              </div>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
+                    );
+                  }
+                )
+              : null}
 
-            <div className="stats">
-              <div>
-                {this.state.results.powerstats &&
-                this.state.results != "null" ? (
-                  <div className="row">
-                    <h3 className="statname">
-                      Durability: {this.state.results.powerstats.durability}
-                    </h3>
-                    <div className="loadbar">
-                      <div
-                        className="progress"
-                        style={
-                          this.state.results.powerstats.durability != "null" &&
-                          this.state.results.powerstats && {
-                            width: 0,
-                            width:
-                              this.state.results.powerstats.durability.toString() +
-                              "%",
-                          }
-                        }
-                      ></div>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            </div>
-
-            <div className="stats">
-              <div>
-                {this.state.results.powerstats &&
-                this.state.results != "null" ? (
-                  <div className="row">
-                    <h3 className="statname">
-                      Speed: {this.state.results.powerstats.speed}
-                    </h3>
-                    <div className="loadbar">
-                      <div
-                        className="progress"
-                        style={
-                          this.state.results.powerstats.speed != "null" &&
-                          this.state.results.powerstats && {
-                            width: 0,
-                            width:
-                              this.state.results.powerstats.speed.toString() +
-                              "%",
-                          }
-                        }
-                      ></div>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            </div>
-
-            <div className="stats">
-              <div>
-                {this.state.results.powerstats &&
-                this.state.results != "null" ? (
-                  <div className="row">
-                    <h3 className="statname">
-                      Strength: {this.state.results.powerstats.strength}
-                    </h3>
-                    <div className="loadbar">
-                      <div
-                        className="progress"
-                        style={
-                          this.state.results.powerstats.strength != "null" &&
-                          this.state.results.powerstats && {
-                            width: 0,
-                            width:
-                              this.state.results.powerstats.strength.toString() +
-                              "%",
-                          }
-                        }
-                      ></div>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            </div>
-
-            <div className="stats">
-              <div>
-                {this.state.results.powerstats &&
-                this.state.results != "null" ? (
-                  <div className="row">
-                    <h3 className="statname">
-                      Combat: {this.state.results.powerstats.combat}
-                    </h3>
-                    <div className="loadbar">
-                      <div
-                        className="progress"
-                        style={
-                          this.state.results.powerstats.combat != "null" &&
-                          this.state.results.powerstats && {
-                            width: 0,
-                            width:
-                              this.state.results.powerstats.combat.toString() +
-                              "%",
-                          }
-                        }
-                      ></div>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            </div>
-
-            <div className="stats">
-              <div>
-                {this.state.results.powerstats &&
-                this.state.results != "null" ? (
-                  <div className="row">
-                    <h3 className="statname">
-                      Power: {this.state.results.powerstats.power}
-                    </h3>
-                    <div className="loadbar">
-                      <div
-                        className="progress"
-                        style={
-                          this.state.results.powerstats.power != "null" &&
-                          this.state.results.powerstats && {
-                            width: 0,
-                            width:
-                              this.state.results.powerstats.power.toString() +
-                              "%",
-                          }
-                        }
-                      ></div>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            </div>
             <div
               className="row"
               style={{ display: "flex", flexDirection: "column" }}
