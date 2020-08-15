@@ -145,7 +145,7 @@ class Charinfo extends Component {
               {this.state.results.biography &&
               this.state.results.biography.aliases[0].length > 1
                 ? "Aliases:"
-                : null}{" "}
+                : null}
             </h3>
             {this.state.results.biography &&
             this.state.results.biography.aliases[0].length > 1
@@ -159,9 +159,10 @@ class Charinfo extends Component {
               : null}
           </div>
           <h3>
-            Place of birth:
-            {this.state.results.biography
-              ? this.state.results.biography["place-of-birth"]
+            {this.state.results.biography &&
+            this.state.results.biography["place-of-birth"].length > 1
+              ? "Place of birth:" +
+                this.state.results.biography["place-of-birth"]
               : null}
           </h3>
         </div>
