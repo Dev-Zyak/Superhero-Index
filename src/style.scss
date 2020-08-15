@@ -18,6 +18,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
+  background: $backgroundcolor;
 }
 
 .row {
@@ -125,11 +126,15 @@ nav {
 }
 
 .Charinfo {
-  background: $backgroundcolor;
+  background: white;
   min-height: 100vh;
-  width: 100%;
+  width: 45vw;
+  margin: auto;
   color: rgb(20, 20, 20);
   padding: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -184,5 +189,21 @@ nav {
     margin-top: 10px;
     font-size: 1.6rem;
     background: $accentcolor;
+  }
+
+  .moreinfo {
+    margin-top: 20px;
+
+    height: fit-content;
+    padding: 10px;
+
+    width: 100%;
+
+    h3 {
+      margin-top: 10px;
+      font-size: 1.6rem;
+      background: rgb(241, 241, 241);
+      border-radius: 8px;
+    }
   }
 }

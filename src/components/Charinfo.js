@@ -44,31 +44,32 @@ class Charinfo extends Component {
             src={this.state.results.image ? this.state.results.image.url : null}
           />
           <div className="column">
-            <h1 id="superName">
-              {this.state.results.name ? this.state.results.name : null}
-            </h1>
-            <h3>
-              {this.state.results.biography &&
-              this.state.results.biography["full-name"].length > 4
-                ? this.state.results.biography["full-name"]
-                : null}
-            </h3>
-
+            <div style={{ alignItems: "center" }} className="row">
+              <h1 id="superName" style={{ textDecoration: "underline" }}>
+                {this.state.results.name ? this.state.results.name : null}
+              </h1>
+              <h3 style={{ color: "#a8a8a8", paddingLeft: "5px" }}>
+                {this.state.results.biography &&
+                this.state.results.biography["full-name"].length > 4
+                  ? " -   " + this.state.results.biography["full-name"]
+                  : null}
+              </h3>
+            </div>
             {this.state.results.powerstats
               ? Object.entries(this.state.results.powerstats).map(
-                  ([key, value], index) => {
+                  ([keys, value], index) => {
                     return (
-                      <div className="stats">
+                      <div className="stats" key={index}>
                         <div>
                           {this.state.results.powerstats &&
                           this.state.results != "null" ? (
                             <div className="row">
-                              <h3 className="statname">{key + ":" + value}</h3>
+                              <h3 className="statname">{keys + ":" + value}</h3>
                               <div className="loadbar">
                                 <div
                                   className="progress"
                                   style={
-                                    this.state.results.powerstats[key] !=
+                                    this.state.results.powerstats[keys] !=
                                       "null" &&
                                     this.state.results.powerstats && {
                                       width: value.toString() + "%",
@@ -103,6 +104,66 @@ class Charinfo extends Component {
               </h3>
             </div>
           </div>
+        </div>
+        <div className="moreinfo">
+          <h3>
+            {this.state.results.connections &&
+            this.state.results.connections["group-affiliation"].length > 3
+              ? this.state.results.name +
+                ":    " +
+                this.state.results.connections["group-affiliation"]
+              : null}
+          </h3>
+
+          <h3>
+            {this.state.results.connections &&
+            this.state.results.connections.relatives.length > 2
+              ? "Relatives:   " + this.state.results.connections.relatives
+              : null}
+          </h3>
+          <h3>
+            {this.state.results.work &&
+            this.state.results.work.occupation.length > 2
+              ? "Occupation:    " + this.state.results.work.occupation
+              : null}
+          </h3>
+          <h3>
+            {this.state.results.work && this.state.results.work.base.length > 2
+              ? "Base: " + this.state.results.work.base
+              : null}
+          </h3>
+
+          <h3>
+            {this.state.results.biography &&
+            this.state.results.biography["first-appearance"].length > 1
+              ? "First Appearence:    " +
+                this.state.results.biography["first-appearance"]
+              : null}
+          </h3>
+          <div className="row">
+            <h3>
+              {this.state.results.biography &&
+              this.state.results.biography.aliases[0].length > 1
+                ? "Aliases:"
+                : null}{" "}
+            </h3>
+            {this.state.results.biography &&
+            this.state.results.biography.aliases[0].length > 1
+              ? Object.values(this.state.results.biography.aliases).map(
+                  (values) => {
+                    return (
+                      <h3 style={{ marginLeft: "5px" }}>{values + ";"}</h3>
+                    );
+                  }
+                )
+              : null}
+          </div>
+          <h3>
+            Place of birth:
+            {this.state.results.biography
+              ? this.state.results.biography["place-of-birth"]
+              : null}
+          </h3>
         </div>
       </div>
     );
