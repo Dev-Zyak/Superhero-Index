@@ -11,7 +11,10 @@ class Charinfo extends Component {
   }
 
   fetchdata = () => {
-    let apiURL = `/api/10222858219473795/${this.props.match.params.id}`;
+    const proxy = "https://cors-anywhere.herokuapp.com/";
+    let apiURL =
+      proxy +
+      `https://superheroapi.com/api/10222858219473795/${this.props.match.params.id}`;
     fetch(apiURL)
       .then((response) => {
         return response.json();
@@ -29,6 +32,9 @@ class Charinfo extends Component {
         console.log(response);
         this.setState({ results: response });
         //console.log(this.state.results);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 

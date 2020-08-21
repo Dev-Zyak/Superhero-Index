@@ -7,13 +7,16 @@ import Charinfo from "./components/Charinfo";
 class App extends Component {
   constructor() {
     super();
-    this.state = { searchtext: "", searchresults: [] };
+    this.state = { searchtext: "", searchresults: {} };
     this.search = this.search.bind(this);
     this.handleEvent = this.handleEvent.bind(this);
   }
   //https://superheroapi.com/ids.html
   search() {
-    let URL = `api/10222858219473795/search/${this.state.searchtext}`;
+    const proxy = "https://cors-anywhere.herokuapp.com/";
+    let URL =
+      proxy +
+      `https://superheroapi.com/api/10222858219473795/search/${this.state.searchtext}`;
     fetch(URL)
       .then((Response) =>
         Response.json().then((Response) => {
@@ -31,7 +34,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router basename="/superhero">
         <Switch>
           <Route path="/" exact>
             <Searchbar search={this.search} handleEvent={this.handleEvent} />

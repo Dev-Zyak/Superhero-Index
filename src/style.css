@@ -72,6 +72,9 @@ nav input {
 
 nav button {
   height: 30%;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
   width: 6%;
   overflow: hidden;
   color: white;
